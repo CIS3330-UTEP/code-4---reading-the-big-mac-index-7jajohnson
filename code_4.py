@@ -34,8 +34,8 @@ def get_the_cheapest_big_mac_price_by_year(year):
     df = pd.DataFrame(pd.read_csv(big_mac_file))
     df = df.loc[df['date'].str[0:4] == year]
     df = df.loc[df['dollar_price']==df['dollar_price'].min()]
-    print(f"{df['name'].values[0]}({df['iso_a3'].values[0]}) ${round(float(df['dollar_price'].values[0]),2)}")
-    return(f"{df['name'].values[0]}({df['iso_a3'].values[0]}) ${round(float(df['dollar_price'].values[0]),2)}")
+    print(f"{df['name'].values[0]}({df['iso_a3'].values[0]}): ${round(float(df['dollar_price'].values[0]),2)}")
+    return(f"{df['name'].values[0]}({df['iso_a3'].values[0]}): ${round(float(df['dollar_price'].values[0]),2)}")
 
 
     # "country_name(country_code): $dollar_price"
@@ -43,9 +43,9 @@ def get_the_most_expensive_big_mac_price_by_year(year):
     df = pd.DataFrame(pd.read_csv(big_mac_file))
     df = df.loc[df['date'].str[0:4] == year]
     df = df.loc[df['dollar_price']==df['dollar_price'].max()]
-    print(f"{df['name'].values[0]}({df['iso_a3'].values[0]}) ${round(float(df['dollar_price'].values[0]),2)}")
-    return(f"{df['name'].values[0]}({df['iso_a3'].values[0]}) ${round(float(df['dollar_price'].values[0]),2)}")
+    print(f"{df['name'].values[0]}({df['iso_a3'].values[0]}): ${round(float(df['dollar_price'].values[0]),2)}")
+    return(f"{df['name'].values[0]}({df['iso_a3'].values[0]}): ${round(float(df['dollar_price'].values[0]),2)}")
 
 
 if __name__ == "__main__":
-    get_the_most_expensive_big_mac_price_by_year("2008")
+    print(get_the_cheapest_big_mac_price_by_year("2016"))
